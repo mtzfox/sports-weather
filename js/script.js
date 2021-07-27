@@ -78,21 +78,11 @@ const listWidget = (function () {
       document.querySelector(".results").classList.add("open");
     },
     updateUIWorking: function () {
-      var count = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-      count.forEach(function (el) {
+      for (let i = 0; i <= 9; i++) {
         setTimeout(function () {
-          document.querySelector(".conditions").innerHTML = `
-          <p class="animation">00:00.${el}</p>
-          `;
-        }, 100 * el);
-      });
-      // for (let i = 0; i <= 9; i++) {
-      //   (function (j) {
-      //     setTimeout(function () {
-      //       document.querySelector(".conditions").innerHTML = `<p class="animation">00:00.${j}</p>`;
-      //     }, 100 * j);
-      //   })(i);
-      // }
+          document.querySelector(".conditions").innerHTML = `<p class="animation">00:00.${i}</p>`;
+        }, 100 * i);
+      }
     },
     updateUISuccess: function (response) {
       const degC = response.main.temp - 273.15;
