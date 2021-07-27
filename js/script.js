@@ -118,16 +118,16 @@ document.querySelector(".forecast-button").addEventListener(
     listWidget.updateUIWorking();
     const location = document.querySelector("#location").value;
     document.querySelector("#location").value = "";
-    // fetch(listWidget.url + location + "&appid=" + listWidget.apiKey)
-    //   .then(function (response) {
-    //     return response.json();
-    //   })
-    //   .then(function (response) {
-    //     listWidget.updateUISuccess(response);
-    //   })
-    //   .catch(function () {
-    //     listWidget.updateUIFailure();
-    //   });
+    fetch(listWidget.url + location + "&appid=" + listWidget.apiKey)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (response) {
+        listWidget.updateUISuccess(response);
+      })
+      .catch(function () {
+        listWidget.updateUIFailure();
+      });
   },
   false
 );
